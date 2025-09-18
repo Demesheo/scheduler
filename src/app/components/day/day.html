@@ -1,5 +1,5 @@
-<div class="calendar">
-    <button (click)="changeDate(-1)">Previous</button>
-    <span class="date-display">{{ formattedDate }}</span>
-    <button (click)="changeDate(1)">Next</button>
-</div>
+<nav class="calendar" aria-label="Daily calendar navigation">
+    <button (click)="changeDate(-1)" aria-label="Previous day">Previous</button>
+    <span class="date-display" aria-live="polite">{{ formattedDate }}</span>
+    <button (click)="changeDate(1)" aria-label="Next day">Next</button>
+</nav>

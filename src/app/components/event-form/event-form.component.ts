@@ -21,7 +21,7 @@ export class EventFormComponent {
   ngOnChanges() {
     this.formData = this.event
       ? { ...this.event }
-      : { date: this.date, startTime: '09:00', endTime: '10:00' }; // default times
+      : { date: this.date, startTime: '09:00', endTime: '10:00' };
   }
 
   onSubmit() {
@@ -37,6 +37,6 @@ export class EventFormComponent {
     };
 
     this.submitEvent.emit(newEvent);
-    this.formData = { date: this.date }; // reset form
+    this.formData = { date: this.date };
   }
 }

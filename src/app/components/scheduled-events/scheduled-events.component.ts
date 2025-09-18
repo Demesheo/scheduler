@@ -20,7 +20,7 @@ export class ScheduledEventsComponent {
   }
 
   formatTime(time: string): string {
-    return DateTime.fromFormat(time, 'HH:mm').toFormat('h:mm a'); // 12-hour format with AM/PM
+    return DateTime.fromFormat(time, 'HH:mm').toFormat('h:mm a');
   }
 
   onEdit(event: ScheduledEvent) {

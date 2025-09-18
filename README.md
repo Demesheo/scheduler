@@ -36,24 +36,35 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+## Design and Architecture
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+This SPA is built with **Angular 20** using **standalone components**:
 
-```bash
-ng test
-```
+- **App** – Root component; manages selected date and editing state.  
+- **DayComponent** – Displays current day with Previous/Next buttons; emits date changes.  
+- **EventFormComponent** – Handles adding/editing events (title, description, start/end times).  
+- **ScheduledEventsComponent** – Shows events for the selected day, sorted by start time, with edit/delete buttons.
 
-## Running end-to-end tests
+**EventService** stores events in memory and provides methods to add, update, delete, and retrieve events.  
+**ScheduledEvent model** defines the event structure (`id`, `title`, `description`, `date`, `startTime`, `endTime`).  
 
-For end-to-end (e2e) testing, run:
+Dates and times are handled with **Luxon** for readable formatting (`September 18, 2025`, `9:00 AM - 10:30 AM`).
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Design Decisions
 
-## Additional Resources
+- **Standalone Components**: Modular and self-contained.  
+- **Service-based state**: Centralizes events; easy to extend with backend later.  
+- **Event-driven communication**: Parent-child interactions via `@Output` events.  
+- **Separation of concerns**: Forms, lists, and state management handled in separate components.  
+- **Accessibility**: Semantic HTML, ARIA labels, focus styles, and descriptive buttons.  
+- **Styling**: Vanilla CSS; card-based event UI; green edit/red delete buttons for clarity.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+### Trade-Offs
+
+- **In-memory storage**: Simple and fast, but events reset on reload.  
+- **Luxon**: Slightly larger bundle, but provides easy and readable date handling.  
+- **Event sorting**: Done in the component for simplicity, slight runtime overhead.

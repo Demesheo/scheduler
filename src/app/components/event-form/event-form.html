@@ -1,6 +1,4 @@
-<form (ngSubmit)="onSubmit()" class="event-form">
-    <h3>{{ event ? 'Edit Event' : 'Add Event' }}</h3>
-
+<form (ngSubmit)="onSubmit()" class="event-form" aria-label="{{ event ? 'Edit Event Form' : 'Add Event Form' }}">
     <label for="title">Title</label>
     <input id="title" type="text" [(ngModel)]="formData.title" name="title" placeholder="Title" required />
 
@@ -14,5 +12,5 @@
     <label for="endTime">End Time</label>
     <input id="endTime" type="time" [(ngModel)]="formData.endTime" name="endTime" required />
 
-    <button type="submit">{{ event ? 'Update' : 'Add' }} Event</button>
+    <button type="submit" aria-label="Submit event">{{ event ? 'Update' : 'Add' }} Event</button>
 </form>
