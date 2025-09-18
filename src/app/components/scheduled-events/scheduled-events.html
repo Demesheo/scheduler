@@ -1,0 +1,13 @@
+<div *ngFor="let event of sortedEvents" class="event-card">
+    <div class="event-info">
+        <div class="event-time">
+            {{ formatTime(event.startTime) }} - {{ formatTime(event.endTime) }}
+        </div>
+        <div class="event-title">{{ event.title }}</div>
+        <div class="event-description">{{ event.description }}</div>
+    </div>
+    <div class="event-actions">
+        <button class="edit-btn" (click)="onEdit(event)">Edit</button>
+        <button class="delete-btn" (click)="onDelete(event.id)">Delete</button>
+    </div>
+</div>

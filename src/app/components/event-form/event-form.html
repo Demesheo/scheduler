@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" class="event-form">
+    <h3>{{ event ? 'Edit Event' : 'Add Event' }}</h3>
+
+    <label for="title">Title</label>
+    <input id="title" type="text" [(ngModel)]="formData.title" name="title" placeholder="Title" required />
+
+    <label for="description">Description</label>
+    <textarea id="description" [(ngModel)]="formData.description" name="description"
+        placeholder="Description"></textarea>
+
+    <label for="startTime">Start Time</label>
+    <input id="startTime" type="time" [(ngModel)]="formData.startTime" name="startTime" required />
+
+    <label for="endTime">End Time</label>
+    <input id="endTime" type="time" [(ngModel)]="formData.endTime" name="endTime" required />
+
+    <button type="submit">{{ event ? 'Update' : 'Add' }} Event</button>
+</form>
