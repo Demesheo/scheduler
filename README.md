@@ -65,6 +65,6 @@ Dates and times are handled with **Luxon** for readable formatting (`September 1
 
 ### Trade-Offs
 
-- **In-memory storage**: Simple and fast, but events reset on reload.  
+- **In-memory storage**: Simple and fast, but events reset on reload. Could change event service to persist in local storage or to api.
 - **Luxon**: Slightly larger bundle, but provides easy and readable date handling.  
-- **Event sorting**: Done in the component for simplicity, slight runtime overhead.
+- **Event sorting**: Done in the component for simplicity, slight runtime overhead.  Could be done in the service if persisting data.
